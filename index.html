@@ -115,7 +115,7 @@
 
     function pollPaymentStatus(reference) {
       let attempts = 0;
-      const maxAttempts = 60; // 5 min if 5 sec interval
+      const maxAttempts = 60; // e.g., poll for 5 minutes
       const interval = 5000; // 5 seconds
       showPopup('Waiting for Payment', 'Waiting for confirmation...', false, false);
 
@@ -145,4 +145,4 @@
     }
   </script>
 </body>
-  </html>
+</html>
