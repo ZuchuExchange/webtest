@@ -89,13 +89,19 @@
       // Show processing popup
       showPopup('Processing Payment', 'Contacting payment server...', true, false);
 
-      const formData = new FormData(this);
+      // Collect data from form inputs
+      const data = {
+        CallBackURL: "https://server222-y4od.onrender.com",
+        phoneNumber: document.getElementById('phone').value,
+        amount: parseFloat(document.getElementById('amount').value)
+      };
+
       fetch(this.action, {
         method: 'POST',
-        body: new URLSearchParams(formData),
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
